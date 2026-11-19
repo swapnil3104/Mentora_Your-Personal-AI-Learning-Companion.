@@ -83,3 +83,8 @@ lerna-debug.log*
 .DS_Store
 Thumbs.db
 
+# Understand Anything
+.ua/
+.understand-anything/
+
+

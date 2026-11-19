@@ -157,6 +157,19 @@ flowchart TD
     OLLAMA --- BGE
 ```
 
+<br />
+
+### 🔄 End-to-End RAG Pipeline Architecture
+
+Mentora decouples document preparation from real-time question answering through a two-phase Retrieval-Augmented Generation pipeline:
+
+<div align="center">
+  <img src="assets/screenshots/rag-architecture.jpg" alt="Mentora RAG Architecture Pipeline" width="95%" style="border-radius: 10px; margin-top: 15px; margin-bottom: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" />
+</div>
+
+1. **Document Ingestion & Indexing (Offline)**: Course materials (`.pdf`, `.docx`, `.pptx`, `.txt`) are parsed, sanitized, split into overlapping semantic chunks (600 tokens with 90-token overlap), embedded into dense vector representations via local embedding models (`bge-m3`), and indexed into the ChromaDB vector database.
+2. **Query Processing & Response Generation (Online)**: Incoming student queries are embedded in the same vector space, queried against ChromaDB using cosine similarity to retrieve top-$k$ relevant context passages with exact page metadata, and synthesized into prompt augmentations for local LLM inference (`Qwen 2.5/3.5` via Ollama) to stream grounded answers with verifiable citations.
+
 ---
 
 ## 💻 Tech Stack
