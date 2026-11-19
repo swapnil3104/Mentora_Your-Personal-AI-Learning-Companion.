@@ -1,0 +1,16 @@
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+env
+venv
+.venv
+chroma_data/*
+!chroma_data/.gitkeep
+logs/*
+.env
+.env.*
+!.env.production.example
+.git
+.vscode

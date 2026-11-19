@@ -1,0 +1,10 @@
+node_modules
+uploads/*
+!uploads/.gitkeep
+.env
+.env.*
+!.env.production.example
+tests
+*.log
+.git
+.vscode
